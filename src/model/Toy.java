@@ -44,4 +44,10 @@ public class Toy {
     public void setFrequencyToy(Integer frequencyToy) {
         this.frequencyToy = frequencyToy;
     }
+
+    @Override
+    public String toString() {
+        return String.format("№%d: %s | Вероятность выпадения: %d | Количество: %d",
+                idToy, nameToy, frequencyToy, countToy);
+    }
 }
