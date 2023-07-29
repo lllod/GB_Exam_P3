@@ -1,7 +1,5 @@
 package view;
-import controller.Controller;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -10,20 +8,7 @@ public class AddMenu {
     private Integer countToy;
     private Integer frequencyToy;
     private boolean flag;
-    public Integer addID() {
-        flag = false;
-        while (!flag) {
-            try {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Введи ID игрушки: ");
-                idToy =  in.nextInt();
-                flag = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Необходимо вводить целочисленное значение!");
-            }
-        }
-        return idToy;
-    }
+
 
     public String addName() {
         Scanner in = new Scanner(System.in);

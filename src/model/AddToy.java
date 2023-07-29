@@ -1,17 +1,13 @@
 package model;
 
-import controller.Controller;
-
-import java.io.IOException;
 
 public class AddToy {
-    Controller controller = new Controller();
-    Integer idToy;
-    String nameToy;
-    Integer countToy;
-    Integer frequencyToy;
+    private final Integer idToy;
+    private final String nameToy;
+    private final Integer countToy;
+    private final Integer frequencyToy;
 
-    public AddToy(Integer idToy, String nameToy, Integer countToy, Integer frequencyToy) throws IOException {
+    public AddToy(Integer idToy, String nameToy, Integer countToy, Integer frequencyToy) {
         this.idToy = idToy;
         this.nameToy = nameToy;
         this.countToy = countToy;
@@ -20,8 +16,6 @@ public class AddToy {
 
     public Toy addToy() {
         return new Toy(this.idToy, this.nameToy, this.countToy, this.frequencyToy);
-//        System.out.println(this.idToy + this.nameToy + this.countToy + this.frequencyToy);
-//        controller.run();
     }
 }
 

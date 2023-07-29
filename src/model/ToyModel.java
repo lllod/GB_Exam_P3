@@ -1,37 +1,29 @@
 package model;
-import model.AddToy;
-import model.ChangeFrequency;
-import model.ToyDraw;
-
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class ToyModel {
-    boolean flag;
-    List<Toy> toys = new ArrayList<>();
-    List<Toy> drawList = new ArrayList<>();
-    Integer idToy;
-    public List<Toy> addToy(Integer idToy, String nameToy, Integer countToy, Integer frequencyToy) throws IOException {
+    private final List<Toy> toys = new ArrayList<>();
+    private Integer idToy;
+    public List<Toy> addToy(Integer idToy, String nameToy, Integer countToy, Integer frequencyToy) {
         AddToy addToy = new AddToy(idToy, nameToy, countToy, frequencyToy);
         toys.add(addToy.addToy());
         return toys;
-//        Toy toy = addToy.addToy();
     }
 
-    public List<Toy> changeFrequency() throws IOException {
-        flag = false;
-        Scanner in = new Scanner(System.in);
+    public List<Toy> changeFrequency() {
+        boolean flag = false;
         while (!flag) {
+            Scanner in = new Scanner(System.in);
             System.out.print("Введи ID игрушки: ");
             if (in.hasNextInt()) {
                 idToy =  in.nextInt();
                 flag = true;
             } else {
-                System.out.println("Необходимо вводить целочисленное значение!");
+                System.out.println("Необходимо вводить целочисленное значение от 1 до 9!");
             }
         }
 
@@ -41,7 +33,6 @@ public class ToyModel {
         }
         if (idList.contains(idToy)) {
             ChangeFrequency changeFrequency = new ChangeFrequency();
-            System.out.println("Все ок");
             return changeFrequency.changeFrequency(idToy, toys);
         } else {
             System.out.println("Игрушки с таким ID нет!");
@@ -49,11 +40,8 @@ public class ToyModel {
         return toys;
     }
 
-    public String toyDraw() throws IOException {
+    public String toyDraw() {
         ToyDraw toyDraw = new ToyDraw(toys);
-        toyDraw.toyDraw();
-
-
-        return "0";
+        return toyDraw.toyDraw();
     }
 }
